@@ -29,3 +29,20 @@ df.to_excel(writer, sheet_name='Names')
 # Output excel file is written in the same location where the
 # script is saved.
 writer.save()
+
+# Changed field name to text
+df = pd.DataFrame({'Names': ["Peter","Ruth","Bob","Sarah"],
+                   'BirthDays': ['12/3/2012','4/3/99','6/24/1985','9-12-87'],
+                   'Job': ["Police Man","Bar tender","fluffer","lumber jack"],
+                   'A Number': [1, 3.45, 5, 1000000]})
+
+# Change output file name. 
+writer = pd.ExcelWriter('Professions.xlsx', engine='xlsxwriter')
+
+# Change the sheet name.
+df.to_excel(writer, sheet_name='Profession')
+
+# Close the Pandas Excel writer and output the Excel file.
+# Output excel file is written in the same location where the
+# script is saved.
+writer.save()
