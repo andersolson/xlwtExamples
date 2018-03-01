@@ -22,6 +22,9 @@ chart.add_series({'values': '=Sheet1!$B$2:$B$8'})
 # Insert the chart into the worksheet.
 worksheet.insert_chart('D2', chart)
 
+# Close the Pandas Excel writer and output the Excel file.
+writer.save()
+
 #--------------------- 2nd part experimenting
 
 import pandas as pd
@@ -47,3 +50,6 @@ chart.add_series({'values': '=Sheet1!$B$2:$B$8'})
 
 # Insert the chart into the worksheet.
 worksheet.insert_chart('D2', chart)
+
+# Close the Pandas Excel writer and output the Excel file.
+writer.save()
