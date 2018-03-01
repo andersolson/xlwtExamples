@@ -1,3 +1,11 @@
+##############################################################################
+#
+# An example of converting a Pandas dataframe to an xlsx file with a chart
+# using Pandas and XlsxWriter.
+#
+# Copyright 2013-2017, John McNamara, jmcnamara@cpan.org
+#
+
 import pandas as pd
 
 # Create a Pandas dataframe from the data.

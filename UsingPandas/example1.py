@@ -1,3 +1,11 @@
+##############################################################################
+#
+# A simple example of converting a Pandas dataframe to an xlsx file using
+# Pandas and XlsxWriter.
+#
+# Copyright 2013-2017, John McNamara, jmcnamara@cpan.org
+#
+
 import pandas as pd
 
 # Create a Pandas dataframe from the data.
@@ -15,6 +23,8 @@ df.to_excel(writer, sheet_name='Sheet1')
 writer.save()
 
 #-------------------- 2nd part, experiment on my own
+
+import pandas as pd
 
 # Changed field name to text
 df = pd.DataFrame({'Names': ["Peter", "Paul", "Bob", "Teddy", "Sofia"]})
