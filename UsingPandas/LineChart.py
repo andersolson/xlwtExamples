@@ -87,7 +87,7 @@ worksheet2 = writer.sheets[chart_name]
 
 # Create a chart object.
 chart  = workbook.add_chart({'type': 'line'})
-chart1 = workbook.add_chart({'type': 'line'}) #create another chart object
+chart1 = workbook.add_chart({'type': 'column'}) #create another chart object
 
 
 # Configure the series of the chart from the dataframe data.
