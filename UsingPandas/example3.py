@@ -5,7 +5,7 @@
 #
 # Copyright 2013-2017, John McNamara, jmcnamara@cpan.org
 #
-'''
+
 import pandas as pd
 import random
 
@@ -53,14 +53,14 @@ worksheet.insert_chart('G2', chart)
 
 # Close the Pandas Excel writer and output the Excel file.
 writer.save()
-'''
+
 #------------------- 2nd part experiments
 
 import pandas as pd
 import random
 
 # Create some sample data to plot.
-max_row     = 50
+max_row     = 30
 categories  = ['Janna', 'Mallory', 'Sasha', 'Sarah']
 index_1     = range(0, max_row, 1) # there will be 50 rows
 multi_iter1 = {'index': index_1} # creates a column named 'index' with 50 rows
@@ -86,7 +86,8 @@ worksheet = writer.sheets[sheet_name]
 worksheet2 = writer.sheets[chart_name] 
 
 # Create a chart object.
-chart = workbook.add_chart({'type': 'line'})
+chart  = workbook.add_chart({'type': 'line'})
+chart1 = workbook.add_chart({'type': 'line'}) #create another chart object
 
 
 # Configure the series of the chart from the dataframe data.
@@ -98,12 +99,24 @@ for i in range(len(categories)):
         'values':     ['Chart1', 1, col, max_row, col],
     })
 
+# Configure the series of the chart1 from the dataframe data.
+for i in range(len(categories)):
+    col = i + 1
+    chart1.add_series({
+        'name':       ['Chart2', 0, col],
+        'categories': ['Chart2', 1, 0,   max_row, 0],
+        'values':     ['Chart2', 1, col, max_row, col],
+    })
+
 # Configure the chart axes.
 chart.set_x_axis({'name': 'Index'})
 chart.set_y_axis({'name': 'Value', 'major_gridlines': {'visible': False}})
+chart1.set_x_axis({'name': 'X-Axis'}) #configure chart1
+chart1.set_y_axis({'name': 'Y-Axis'}) #configure chart1
 
 # Insert the chart into the worksheet.
 worksheet.insert_chart('G2', chart)
+worksheet2.insert_chart('G2', chart1) #insert chart1 chart
 
 # Close the Pandas Excel writer and output the Excel file.
 writer.save()
